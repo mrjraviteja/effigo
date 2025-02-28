@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>IDP Login</title>
+</head>
+<body>
+    <h1 th:text="${loginMessage}"></h1>
+    <div th:if="${jwtToken != null}">
+        <p><strong>JWT Token:</strong> <span th:text="${jwtToken}"></span></p>
+    </div>
+</body>
+</html>

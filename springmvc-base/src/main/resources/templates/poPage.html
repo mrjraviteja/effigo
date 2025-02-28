@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dropdown Sections</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+<!-- Chosen CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+
+<!-- jQuery (required for Chosen) -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Chosen JavaScript 
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script> -->
+	
+<script src="chosen.jquery.js">
+
+$(document).ready(function() {
+	$(".chzn-select").chosen({disable_search:false, enable_split_word_search:true,
+		  group_search:true,
+		  search_contains:false,
+		  case_sensitive_search:false,
+		  hide_results_on_select:true,
+});
+});
+
+</script>
+
+</head>
+<body>
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-align">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div
+				class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding list-table-label purchase-table-header">Delivery
+				Schedule Details</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+			<div class="col-lg-1 col-md-0 col-sm-1 col-xs-1"></div>
+			<div class="col-lg-1 col-md-0 col-sm-1 col-xs-1"></div>
+
+		</div>
+		<div
+			class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive x-auto table-no-padding"
+			style="overflow-y: hidden; overflow-x: auto; position: static; z-index: 10;">
+			<table class="table mainTableAlign1 deliveryTable "
+				id="deliveryScheduleTableID">
+				<thead>
+					<tr class="adv-reg-comp-sub-lbl ">
+						<th class="adv-reg-comp-sub-lbl no-word-break ">Item Name</th>
+						<th class="adv-reg-comp-sub-lbl no-word-break ">Required Date</th>
+						<th class="adv-reg-comp-sub-lbl no-word-break  text-center">Quantity</th>
+						<th class="adv-reg-comp-sub-lbl no-word-break  text-center">Delivery
+							Details</th>
+						<c:if test="${CLIENT_NAME eq 'NCC'}">
+							<th class="adv-reg-comp-sub-lbl no-word-break ">Warehouse</th>
+						</c:if>
+						<th class="adv-reg-comp-sub-lbl no-word-break  text-center">Action</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr class="adv-reg-comp-dtls-lbl firstRow delivery_schedule"
+						count="0">
+						<input type="hidden" name="deliveryScheduleId"
+							id="deliveryScheduleId_0" value="">
+						<input type="hidden" name="poItemId" id="poItemId_0" value="">
+
+						<td class=" no-word-break" style="width: 140px;"><select
+							class="basic-reg-comp-dtls-txt tbl-responsive-dropdown choosenBox itemName"
+							onchange="changeItemName(this);" id="itemName_0"
+							name="deliveryItemId">
+								<option value="">Select</option>
+								<option value="">100 KVA AIR COOLED VOLTAGE
+									STABILISER-PO-ITM-2025-123</option>
+								<option value="">10 MOD,G.I.METAL BOX,
+									L&T,OW10MOO-PO-ITM-2025-124</option>
+								<option value="">10 WAY SEQUENTIAL
+									CONTROLLER-PO-ITM-2025-125</option>
+
+						</select></td>
+
+						<td class=" no-word-break text-center" style="width: 140px;">
+							<input id="deliverydate_0" name="deliveryDate" autocomplete="off"
+							class="datetimepicker basic-reg-comp-dtls-txt deliverydate"
+							placeholder="Select Date">
+						</td>
+						<td class=" no-word-break text-center" style="width: 100px;">
+							<input type="text" maxlength="8"
+							class="adv-reg-popup-textbox1 tbl-responsive-quantity quantity"
+							id="quantity_0" name="deliveryQty"> <!--  -->
+						</td>
+						<td class=" no-word-break  text-center"><input type="text"
+							class="adv-reg-popup-textbox1 tbl-responsive-quantity deliverydetails"
+							id="deliverydetails_0" name="deliveryDesc"></td>
+						<c:if test="${CLIENT_NAME eq 'NCC'}">
+							<td class=" no-word-break" style="width: 180px;"><select
+								class="basic-reg-comp-dtls-txt tbl-responsive-dropdown choosenBox poItemId"
+								id="project_address_0" name="deliveryWarehouse">
+									<option value="">Select</option>
+									<option value="">Apple</option>
+									<option value="">Zeiss Group</option>
+									<option value="">OSI</option>
+							</select></td>
+						</c:if>
+
+						<td class=" no-word-break  ">
+							<!-- <img src="images/deleteSmall.png" class="del-img-margin" onclick="removetblrow(this)" alt="Add"> -->
+
+							<img src="contract-images/plusSmall.png"
+							class="plus-align add-contract-milestone-deliverable plus-padding add-line-item-row del-img-margin">
+							<!--onclick="addLineItem('${item.itemName}');"  -->
+						</td>
+
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 lastinputField">
+			<p style="color: red; display: none;" id="item_name_error">Please
+				Select Item</p>
+			<p style="color: red; display: none;" id="delivery_date_error">Please
+				Enter Delivery Date</p>
+			<p style="color: red; display: none;" id="delivery_dateformat_error">Please
+				Enter Delivery Date in dd-mm-yyyy format</p>
+			<p style="color: red; display: none;" id="qty_error">Please Enter
+				Quantity</p>
+			<p style="color: red; display: none;" id="qty_error_no">Please
+				Enter valid Quantity</p>
+			<p style="color: red; display: none;" id="delivery_description_error">Please
+				Enter Delivery Details</p>
+			<p style="color: red; display: none;" id="quantity_exceed_error"></p>
+			<p style="color: red; display: none;" id="quantity_exceed_error1"></p>
+			<p style="color: red; display: none;" id="quantity_exceed_error2"></p>
+			<p style="color: red; display: none;" id="date_exceed_error"></p>
+			<p style="color: red; display: none;" id="qty_error1">Zero
+				Quantity is not allowed</p>
+			<p style="color: red; display: none;" id="warehouse_error">Please
+				Select Warehouse</p>
+			<p style="color: red; display: none;" id="qty_error_for_date_address"></p>
+		</div>
+	</div>
+
+
+</body>
+</html>

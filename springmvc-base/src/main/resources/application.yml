@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: spring-thymeleaf-base
+  server:
+    port: 8080
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+
+# application.yml
+app:
+  security:
+    link: "https://ssodemo.effigo.in/effigo-security/idp-demo/authorize/upeg"

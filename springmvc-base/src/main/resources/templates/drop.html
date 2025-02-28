@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chosen Dropdown Test</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+</head>
+<body>
+  <select class="chzn-select">
+    <option value=""></option>
+    <option value="Raghu Singh">OSI&nbsp;&nbsp;(Raghu Singh&nbsp;)</option>
+    <option value="Ramesh Singh751">Zeiss Group&nbsp;&nbsp;(Ramesh Singh751&nbsp;)</option>
+    <option value="Sheetal">Apple&nbsp;&nbsp;(Sheetal&nbsp;)</option>
+    <option value="rohit">ExcelR Edu&nbsp;&nbsp;(rohit&nbsp;)</option>
+    <option value="dhanush05">Alation&nbsp;&nbsp;(dhanush05&nbsp;)</option>
+    <option value="karthik">Tata Reality &nbsp;&nbsp;(karthik&nbsp;)</option>
+    <option value="mahesh Singh41">Salty Pvt Ltd. &nbsp;&nbsp;(mahesh Singh413&nbsp;)</option>
+
+  </select>
+
+  <script>
+    $(document).ready(function() {
+      $(".chzn-select").chosen({
+        disable_search: false,
+        enable_split_word_search: true,
+        group_search: true,
+        search_contains: true,
+        case_sensitive_search: false,
+        hide_results_on_select: true
+      });
+    });
+  </script>
+</body>
+</html>
